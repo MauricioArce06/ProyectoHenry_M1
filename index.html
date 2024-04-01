@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Proyecto M1</h1>
-</body>
+  </head>
+  <body>
+    <header>
+      <span>Mauricio Arce</span>
+      <nav>
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="#tecnologías">Mis tecnologías</a>
+        <a href="#actividades">Mis actividades</a>
+        <div class="animacion start-sobre-mi"></div>
+      </nav>
+    </header>
+    <main>
+      <h1>Mi primera página</h1>
+      <section class="cuadros" id="sobre-mi">
+        <h1 class="sobre-mi">Sobre Mi</h1>
+        <p>
+          Soy Mauricio Arce, actualmente recido en la ciudad de Córdoba en
+          Argentina. Terminé el secundario el año pasado y desde tercer año me
+          empecé a interesar más y más por la programación.
+          <br />Actualmente me encuentro dando mis primeros pasos en este mundo
+          de la programación gracias a curso, ademas de que cuento con el apoyo
+          de familiares que tambien estan en este ámbito y saben sobre el mismo.
+        </p>
+      </section>
+      <section class="cuadros" id="tecnología">
+        <h1 id="tecnologíaTxt">Mis Tecnologías</h1>
+        <article class="cards">
+          <div class="card" id="html">
+            <h1>HTML</h1>
+            <img src="./Assets/Imagenes/HTML-5-Badge-Logo.png" alt="html" />
+          </div>
+          <div class="card" id="CSS">
+            <h1>CSS</h1>
+            <img src="./Assets/Imagenes/css logo.png" alt="css" />
+          </div>
+          <div class="card" id="JS">
+            <h1>JS</h1>
+            <img src="./Assets/Imagenes/JavaScript-logo.png" alt="js" />
+          </div>
+        </article>
+      </section>
+      <section class="cuadros" id="actividades">
+        <h1>Mis Actividades</h1>
+        <div>
+          <input type="text" placeholder="Actividad" />
+          <input type="text" placeholder="Url de la imágen" />
+          <input type="text" placeholder="Descripción" />
+          <button>Enviar</button>
+        </div>
+      </section>
+    </main>
+    <script src="actividades.js"></script>
+  </body>
 </html>
