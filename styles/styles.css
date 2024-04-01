@@ -1,0 +1,231 @@
+body {
+  background-color: #b65cda;
+}
+
+header {
+  background-color: #872abd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 5em;
+  padding-right: 5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+header span {
+  font-family: poppins;
+  font-size: xx-large;
+  font-weight: 700;
+  color: white;
+  text-shadow: #000000 3px 3px 5px;
+}
+
+nav {
+  background-color: rgba(171, 60, 223, 0.952);
+  width: 30em;
+  height: 2em;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: #000000 0px 3px 5px 0px;
+  position: relative;
+}
+
+nav a {
+  font-family: poppins;
+  font-size: medium;
+  font-weight: 400;
+  color: white;
+  text-shadow: #000000 3px 3px 5px;
+  z-index: 1;
+}
+
+nav .animacion {
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  z-index: 0;
+  background-color: #000000;
+  border-radius: 5px;
+  transition: all 0.6s ease 0s;
+}
+
+a:nth-child(3) {
+  width: 125px;
+}
+
+nav .start-sobre-mi,
+a:nth-child(3):hover ~ .animacion {
+  width: 182.55px;
+  left: 297px;
+}
+
+a:nth-child(2) {
+  width: 125px;
+}
+
+nav .start-sobre-mi,
+a:nth-child(2):hover ~ .animacion {
+  width: 165px;
+  left: 132px;
+}
+
+a:nth-child(1) {
+  width: 72px;
+}
+
+nav .start-sobre-mi,
+a:nth-child(1):hover ~ .animacion {
+  width: 132px;
+  left: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4em;
+}
+
+main h1 {
+  font-family: poppins;
+  font-size: xx-large;
+  font-weight: 700;
+  color: white;
+  text-shadow: #000000 3px 3px 5px;
+}
+
+.cuadros {
+  background-color: #872abd;
+  width: 80vw;
+  height: 30vh;
+  border-radius: 5px;
+  margin: 4em;
+  border-radius: 12px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 18em;
+}
+
+#sobre-mi p {
+  background-color: #9c34c5;
+  text-wrap: pretty;
+  width: 70vw;
+  height: 20vh;
+  margin-top: 1em;
+  border-radius: 12px;
+  padding: 2em;
+  font-family: poppins;
+  box-shadow: #9c34c5 0px 0px 25px 20px;
+}
+
+#tecnología {
+  position: relative;
+  background-color: #872abd;
+  padding-bottom: 3em;
+  height: auto;
+  transition: padding-bottom 0.3s ease; /* Agrega una transición suave al ajustar el padding */
+}
+.card:hover ~ #tecnología {
+  height: 500em;
+}
+
+#tecnologíaTxt {
+  margin-bottom: 2em;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: fit-content;
+}
+
+.card {
+  background-color: #c581ec;
+  border-radius: 15px;
+  margin-right: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+}
+
+.card:nth-child(3) {
+  margin-right: 0;
+}
+
+.card img {
+  width: 150px;
+  height: 160px;
+  margin-top: 1em;
+  border-radius: 20px;
+  filter: grayscale(100%);
+  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+}
+
+.card:hover {
+  transform: scale(1.4);
+  box-shadow: #b65cda 0px 0px 10px 1px;
+}
+.card:hover img {
+  transform: scale(1.23);
+  filter: grayscale(0%);
+}
+
+#actividades {
+  display: flex;
+  padding-bottom: 23em;
+}
+
+#actividades div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 50vw;
+  height: 40vh;
+}
+
+#actividades div input {
+  width: 50vw;
+  height: 5vh;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  outline: none;
+  border-color: violet;
+  background: #e4a1ff;
+  font-size: large;
+  font-family: poppins;
+}
+
+#actividades div input:nth-child(3) {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+#actividades div input {
+  padding-left: 1em;
+}
+
+#actividades div button {
+  border-radius: 25px;
+  background-color: #c581ec;
+  padding: 1em;
+  font-family: poppins;
+}
+
+#actividades div button:hover {
+  background-color: rgb(228, 134, 252);
+}
+#actividades div button:active {
+  background-color: rgb(222, 88, 255);
+}
