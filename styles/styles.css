@@ -128,12 +128,10 @@ main h1 {
 #tecnología {
   position: relative;
   background-color: #872abd;
-  padding-bottom: 3em;
+  padding-bottom: 6em;
   height: auto;
-  transition: padding-bottom 0.3s ease; /* Agrega una transición suave al ajustar el padding */
-}
-.card:hover ~ #tecnología {
-  height: 500em;
+  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94); /* Agrega una transición suave al ajustar el padding */
+  max-height: max-content;
 }
 
 #tecnologíaTxt {
@@ -156,6 +154,10 @@ main h1 {
   align-items: center;
   padding: 2em;
   transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+}
+
+.card p {
+  font-family: poppins;
 }
 
 .card:nth-child(3) {
@@ -185,7 +187,7 @@ main h1 {
   padding-bottom: 23em;
 }
 
-#actividades div {
+#actividades form {
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -193,7 +195,7 @@ main h1 {
   height: 40vh;
 }
 
-#actividades div input {
+#actividades form input {
   width: 50vw;
   height: 5vh;
   margin-bottom: 1em;
@@ -212,20 +214,25 @@ main h1 {
   align-items: start;
 }
 
-#actividades div input {
+#actividades form input {
   padding-left: 1em;
 }
 
-#actividades div button {
+#actividades form button {
   border-radius: 25px;
   background-color: #c581ec;
   padding: 1em;
   font-family: poppins;
 }
 
-#actividades div button:hover {
+#actividades form button:hover {
   background-color: rgb(228, 134, 252);
 }
-#actividades div button:active {
+#actividades form button:active {
   background-color: rgb(222, 88, 255);
+}
+
+#espacioActividades {
+  display: flex;
+  flex-wrap: wrap;
 }

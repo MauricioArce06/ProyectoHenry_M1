@@ -16,66 +16,98 @@ class Repository {
     return [...this.actividades];
   }
 
-  createActivity(id, titulo, descripción, url) {
+  createActivity(titulo, descripción, url) {
+    let id =
+      this.actividades.length > 0
+        ? this.actividades[this.actividades.length - 1].id + 1
+        : 1;
+
     const actividad = new Actividad(id, titulo, descripción, url);
     this.actividades.push(actividad);
-    //mejora dada por ChatGPT: "Mejora: Validación de entrada en createActivity()
-    // // Es posible que desees agregar validaciones para garantizar que los parámetros proporcionados sean válidos antes de crear una nueva actividad."
-    //   if (!id || !titulo || !descripción || !url) {
-    //     throw new Error("Todos los campos son obligatorios");
-    //   }
-    //   const actividad = new Actividad(id, titulo, descripción, url);
-    //   this.actividades.push(actividad);
-
-    //----------------------------------------------------//
-
-    //otra mejora dada por ChatGPT: "En lugar de mutar directamente la propiedad actividades en createActivity() y deleteActivity(), podrías proporcionar métodos adicionales para manejar estas operaciones."
-    // this.actividades.push(actividad)
   }
-
   deleteActivity(id) {
     this.actividades = this.actividades.filter((actividad) => {
       return actividad.id !== id;
     });
+    return this.actividades;
   }
 }
-// Alternativa dada por ChatGPT
-// class Repository {
-//   constructor() {
-//     this.actividades = new Map();
-//   }
-
-//   getAllActivities() {
-//     return [...this.actividades.values()];
-//   }
-
-//   createActivity(id, titulo, descripción, url) {
-//     const actividad = new Actividad(id, titulo, descripción, url);
-//     this.actividades.set(id, actividad);
-//   }
-
-//   deleteActivity(id) {
-//     this.actividades.delete(id);
-//   }
-// }
 
 //Pruebas de que si funciona el codigo correctamente
+const repositorio = new Repository();
 
-const actividades = new Repository();
+// actividades.createActivity(
+//   "Yoga",
+//   "El yoga es una disciplina que se basa en la meditación y la respiración.",
+//   "https://albadanatural.es/wp-content/uploads/2018/06/yoga-e1545341611900.jpg"
+// );
 
-actividades.createActivity(
-  1,
-  "Yoga",
-  "El yoga es una disciplina que se basa en la meditación y la respiración.",
-  "https://albadanatural.es/wp-content/uploads/2018/06/yoga-e1545341611900.jpg"
-);
+function toHTML(actividad) {
+  const { id, titulo, descripción, url } = actividad;
+  const cardAct = document.createElement("div");
+  const title = document.createElement("h1");
+  const imgAct = document.createElement("img");
+  const desc = document.createElement("p");
+  const borrar = document.createElement("button");
+  cardAct.classList.add("card");
+  title.textContent = titulo;
+  desc.textContent = descripción;
+  imgAct.src = url;
+  borrar.textContent = "Borrar";
 
-actividades.createActivity(
-  2,
-  "Gym",
-  "el gym es una disciplina que se basa en la meditación y la respiración.",
-  "https://media.istockphoto.com/id/1322158059/es/foto/mancuerna-botella-de-agua-toalla-en-el-banco-en-el-gimnasio.jpg?s=612x612&w=0&k=20&c=6wc4q5s37IHzQh-2uAaaXROj2dSNWYpwFz6oHRQYKsQ="
-);
+  borrar.dataset.id = id;
 
-actividades.deleteActivity(1);
-console.log(actividades.getAllActivities());
+  borrar.addEventListener("click", (event) => {
+    const id = event.target.dataset.id;
+    repositorio.deleteActivity(parseInt(id));
+    todoHTML();
+  });
+
+  cardAct.appendChild(title);
+  cardAct.appendChild(imgAct);
+  cardAct.appendChild(desc);
+  cardAct.appendChild(borrar);
+
+  const espacioActividades = document.getElementById("espacioActividades");
+  espacioActividades.appendChild(cardAct);
+
+  return cardAct;
+}
+
+function todoHTML() {
+  const espacioActividades = document.getElementById("espacioActividades");
+  document.getElementById("espacioActividades").innerHTML = "";
+  const actividades = repositorio.getAllActivities();
+  const htmls = actividades.map((actividades) => {
+    return toHTML(actividades);
+  });
+  htmls.forEach((htmls) => {
+    espacioActividades.appendChild(htmls);
+  });
+}
+
+function handler() {
+  event.preventDefault();
+  const titulo = document.getElementById("inputAct").value;
+  const url = document.getElementById("inputImg").value;
+  const descripción = document.getElementById("inputDesc").value;
+  if (titulo == "" || url == "" || descripción == "") {
+    const aviso = document.createElement("p");
+    aviso.textContent = "Campo no completado";
+    const formulario = document.querySelector("form");
+    formulario.appendChild(aviso);
+    return;
+  }
+  repositorio.createActivity(titulo, descripción, url);
+  todoHTML();
+}
+
+const boton = document.getElementById("inputButton");
+
+boton.addEventListener("click", handler);
+
+// actividades.createActivity(
+//   "Gym",
+//   "el gym es una disciplina que se basa en la meditación y la respiración.",
+//   "https://media.istockphoto.com/id/1322158059/es/foto/mancuerna-botella-de-agua-toalla-en-el-banco-en-el-gimnasio.jpg?s=612x612&w=0&k=20&c=6wc4q5s37IHzQh-2uAaaXROj2dSNWYpwFz6oHRQYKsQ="
+// );
