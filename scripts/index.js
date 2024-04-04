@@ -89,16 +89,7 @@ function handler(event) {
   const url = document.getElementById("inputImg").value;
   const descripción = document.getElementById("inputDesc").value;
   if (titulo == "" || url == "" || descripción == "") {
-    const aviso = document.createElement("p");
-    const alerta = document.createElement("img");
-    alerta.src = "../Assets/Imagenes/alerta.png";
-    aviso.textContent = "Campos no completados";
-    const formulario = document.querySelector("form");
-    const alertaDiv = document.createElement("div");
-    alertaDiv.appendChild(alerta);
-    alertaDiv.appendChild(aviso);
-    formulario.appendChild(alertaDiv);
-    return;
+    return alert("Hay datos incompletos.");
   }
   repositorio.createActivity(titulo, descripción, url);
   todoHTML();
