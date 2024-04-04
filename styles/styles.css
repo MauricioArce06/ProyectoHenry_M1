@@ -101,16 +101,16 @@ main h1 {
 .cuadros {
   background-color: #872abd;
   width: 80vw;
-  height: 30vh;
+  height: auto;
   border-radius: 5px;
   margin: 4em;
   border-radius: 12px;
   padding-top: 2em;
-  padding-bottom: 2em;
+  padding-bottom: 5em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 18em;
+  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94); /* Agrega una transición suave al ajustar el padding */
 }
 
 #sobre-mi p {
@@ -128,24 +128,19 @@ main h1 {
 #tecnología {
   position: relative;
   background-color: #872abd;
-  padding-bottom: 6em;
+  padding: 2em;
   height: auto;
-  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94); /* Agrega una transición suave al ajustar el padding */
   max-height: max-content;
-}
-
-#tecnologíaTxt {
-  margin-bottom: 2em;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: fit-content;
 }
 
 .card {
+  height: 288px;
   background-color: #c581ec;
   border-radius: 15px;
   margin-right: 5em;
@@ -153,11 +148,20 @@ main h1 {
   flex-direction: column;
   align-items: center;
   padding: 2em;
-  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+  transition: all 0.5s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+  box-shadow: #b73efd 0px 0px 4px 1px;
+  margin-top: 2em;
 }
 
 .card p {
   font-family: poppins;
+}
+.card h3 {
+  font-family: poppins;
+  font-size: xx-large;
+  font-weight: 700;
+  color: white;
+  text-shadow: #000000 3px 3px 5px;
 }
 
 .card:nth-child(3) {
@@ -176,15 +180,18 @@ main h1 {
 .card:hover {
   transform: scale(1.4);
   box-shadow: #b65cda 0px 0px 10px 1px;
+  margin-bottom: 4em;
+  margin-top: 4.5em;
 }
+
 .card:hover img {
   transform: scale(1.23);
   filter: grayscale(0%);
 }
 
 #actividades {
-  display: flex;
-  padding-bottom: 23em;
+  height: auto;
+  padding-bottom: 2em;
 }
 
 #actividades form {
@@ -192,7 +199,6 @@ main h1 {
   flex-direction: column;
   align-items: start;
   width: 50vw;
-  height: 40vh;
 }
 
 #actividades form input {
@@ -205,6 +211,20 @@ main h1 {
   background: #e4a1ff;
   font-size: large;
   font-family: poppins;
+}
+
+#actividades form div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+#actividades form div img {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5em;
 }
 
 #actividades div input:nth-child(3) {
@@ -234,5 +254,72 @@ main h1 {
 
 #espacioActividades {
   display: flex;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  height: auto;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+#espacioActividades div {
+  position: relative;
+  width: 270px;
+  height: auto;
+}
+
+#espacioActividades div:hover {
+  margin-top: 3em;
+  margin-bottom: 3em;
+  transform: scale(1.1);
+}
+
+#espacioActividades div:nth-child(1) {
+  margin-left: 5em;
+}
+
+#espacioActividades div:nth-child(4) {
+  margin-left: 5em;
+}
+#espacioActividades div:nth-child(3) {
+  margin-right: 5em;
+}
+
+#espacioActividades div p {
+  margin-top: 20px;
+  padding: 0;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+#espacioActividades div button {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #480270;
+  padding: 1em;
+  font-family: poppins;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.61, 0.29, 0.22, 0.94);
+}
+
+#espacioActividades div:hover button {
+  transform: scale(1.23);
+}
+
+#espacioActividades div button:hover {
+  background-color: rgb(141, 52, 177);
+}
+#espacioActividades div:hover p {
+  display: flex;
+  margin-top: 30px;
+  text-align: center;
+}
+
+#espacioActividades div button:active {
+  background-color: rgb(162, 58, 204);
 }

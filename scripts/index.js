@@ -45,7 +45,7 @@ const repositorio = new Repository();
 function toHTML(actividad) {
   const { id, titulo, descripción, url } = actividad;
   const cardAct = document.createElement("div");
-  const title = document.createElement("h1");
+  const title = document.createElement("h3");
   const imgAct = document.createElement("img");
   const desc = document.createElement("p");
   const borrar = document.createElement("button");
@@ -53,7 +53,7 @@ function toHTML(actividad) {
   title.textContent = titulo;
   desc.textContent = descripción;
   imgAct.src = url;
-  borrar.textContent = "Borrar";
+  borrar.textContent = "X";
 
   borrar.dataset.id = id;
 
@@ -63,10 +63,7 @@ function toHTML(actividad) {
     todoHTML();
   });
 
-  cardAct.appendChild(title);
-  cardAct.appendChild(imgAct);
-  cardAct.appendChild(desc);
-  cardAct.appendChild(borrar);
+  cardAct.append(borrar, title, imgAct, desc);
 
   const espacioActividades = document.getElementById("espacioActividades");
   espacioActividades.appendChild(cardAct);
@@ -86,20 +83,26 @@ function todoHTML() {
   });
 }
 
-function handler() {
+function handler(event) {
   event.preventDefault();
   const titulo = document.getElementById("inputAct").value;
   const url = document.getElementById("inputImg").value;
   const descripción = document.getElementById("inputDesc").value;
   if (titulo == "" || url == "" || descripción == "") {
     const aviso = document.createElement("p");
-    aviso.textContent = "Campo no completado";
+    const alerta = document.createElement("img");
+    alerta.src = "../Assets/Imagenes/alerta.png";
+    aviso.textContent = "Campos no completados";
     const formulario = document.querySelector("form");
-    formulario.appendChild(aviso);
+    const alertaDiv = document.createElement("div");
+    alertaDiv.appendChild(alerta);
+    alertaDiv.appendChild(aviso);
+    formulario.appendChild(alertaDiv);
     return;
   }
   repositorio.createActivity(titulo, descripción, url);
   todoHTML();
+  document.getElementById("myForm").reset();
 }
 
 const boton = document.getElementById("inputButton");
